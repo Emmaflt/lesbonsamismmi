@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">LesBonsAmis</h1>
+        <p class="lead text-muted">Ce site à pour ambition l'échange et la vente d'objets/affaires entre amis à des prix lowcost, voir gratuit !</p>
+      </div>
+    </div>
+  </section>
+
+<h1>Offres</h1>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <% @offers.each do |offer| %>
+    <div class="col">
+      <div class="card shadow-sm">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+        <div class="card-body">
+          <h1 class="card-text"><%= offer.title %></h1>
+          <h2 class="card-text"><%= offer.user_id %></h2>
+            <p class="card-text"><%= offer.description %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Voir', offer %></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Contacter le vendeur', offer %></button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%
+=begin%>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Photo</th>
+      <th>Price</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.title %></td>
+        <td><%= offer.description %></td>
+        <td><%= offer.photo %></td>
+        <td><%= offer.price %></td>
+        <td><%= offer.user_id %></td>
+        <td><%= link_to 'Show', offer %></td>
+        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %> 
+<%
+=end%>
