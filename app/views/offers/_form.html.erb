@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-floating">
+    <%= form.text_field :title, class: "form-control", :required => true %>
     <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+<br>
+
+  <div class="form-floating mh-200">    
+    <%= form.text_area :description, class: "form-control", :required => true %>
     <%= form.label :description %>
-    <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+<br>
+
+  <div class="form-floating">   
+    <%= form.text_field :photo, class: "form-control", :required => true %>
     <%= form.label :photo %>
-    <%= form.text_field :photo %>
   </div>
 
-  <div class="field">
+<br>
+
+  <div class="form-floating">   
+    <%= form.text_field :price, class: "form-control", :required => true %>
     <%= form.label :price %>
-    <%= form.text_field :price %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+<br>
 
-  <div class="actions">
+  <div class="action">
     <%= form.submit %>
   </div>
+
 <% end %>

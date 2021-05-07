@@ -42,4 +42,3 @@ ActiveRecord::Schema.define(version: 2021_05_06_125216) do
 
   add_foreign_key "offers", "users"
 end
-

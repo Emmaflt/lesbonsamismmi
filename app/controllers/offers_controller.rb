@@ -24,6 +24,8 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
 
+    @offer.user = current_user
+
     respond_to do |format|
       if @offer.save
         format.html { redirect_to @offer, notice: "Offer was successfully created." }
