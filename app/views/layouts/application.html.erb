@@ -25,7 +25,11 @@
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="/offers" class="nav-link px-2 text-white text-decoration-none">Acheter</a></li>
             <li><a href="/offers/new" class="nav-link px-2 text-white text-decoration-none">Vendre</a></li>
+            <% if user_signed_in? %>
+            <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"nav-link px-2 text-white text-decoration-none" %></a></li>
+            <% else %>
             <li><a href="/users/sign_in" class="nav-link px-2 text-white text-decoration-none">Se Connecter</a></li>
+            <% end %>
           </ul>
 
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -46,7 +50,7 @@
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                 <li><%= link_to "Profil", edit_user_registration_path, class:"dropdown-item" %></a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></a></li>
+                <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"nav-link px-2 text-decoration-none" %></a></li>
               </ul>
             </div>
           <% end %>

@@ -46,6 +46,7 @@
            <% if current_user.present? && current_user == @offer.user %>
             <%= link_to 'Delete', @offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>  
            <% end %>
+           <br>
           <%= link_to 'Back', offers_path, class: "btn btn-primary btn-sm" %>
         </div>
         
